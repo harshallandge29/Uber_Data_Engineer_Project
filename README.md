@@ -1,42 +1,38 @@
-End-to-End Data Engineering Streaming Project (Azure + Spark + EventHub + Databricks)
+End-to-End Uber Data Engineering Streaming Project (Azure + Spark + EventHub + Databricks)
 
-This project demonstrates a complete end-to-end real-time data engineering pipeline built using Azure services, Apache Spark, and modern data warehouse modeling techniques.
+The project demonstrates how to design and implement a modern real-time + batch data pipeline following industry best practices including metadata-driven pipelines, streaming ingestion, Slowly Changing Dimensions, and Star Schema modeling.
 The pipeline simulates event generation from a web application, streams data through Event Hub, processes it using PySpark Structured Streaming in Databricks, and loads it into a STAR Schema data warehouse for analytics.
 
 The goal of this project is to showcase real-world data engineering skills including:
-
-Streaming ingestion
-
-Cloud data pipelines
-
-Metadata-driven processing
-
-Slowly Changing Dimensions (SCD)
-
-Data warehouse modeling
-
+Streaming ingestion,
+Cloud data pipelines,
+Metadata-driven processing,
+Slowly Changing Dimensions (SCD),
+Data warehouse modeling,
 End-to-end architecture design
 
- Architecture
 
-Pipeline flow:
+A modern Lakehouse + Streaming architecture:
 
-WebApp → EventHub → Data Factory → Data Lake → Databricks (Spark Streaming) → Delta Tables → Star Schema
+1.Web Application → Event Hub
+Events are generated from a WebApp
+Sent to Azure Event Hub for real-time streaming ingestion
 
-Main components used:
+2.Event Hub → Azure Data Factory / Data Lake
+Azure Data Factory orchestrates ingestion pipelines
+Raw data stored in Azure Data Lake
 
-Web Application (event generator)
+3.Databricks + PySpark Structured Streaming
+Streaming data processed using Spark Structured Streaming
+Metadata-driven pipelines for scalable ingestion
+Transformation logic implemented using PySpark
 
-Azure Event Hub (stream ingestion)
+4.Delta / Lakehouse Processing
+Bronze → Silver → Gold pattern
+Slowly Changing Dimensions (SCD)
+Incremental streaming loads
 
-Azure Data Factory (orchestration)
+5.Star Schema Data Model
+Fact and Dimension tables created
+Optimized for analytics & reporting
 
-Azure Data Lake Storage
-
-Azure Databricks
-
-PySpark Structured Streaming
-
-Delta Lake
-
-Star Schema Data Warehouse
